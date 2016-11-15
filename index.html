@@ -1,0 +1,58 @@
+<!DOCTYPE>
+<html lang="html">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>FFMpeg File Processing</title>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
+	<!-- Styles -->
+	<link href="assets/css/jquery.filer.css" rel="stylesheet">
+
+	<!-- Jvascript -->
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js" crossorigin="anonymous"></script>
+	<script src="assets/js/jquery.filer.min.js" type="text/javascript"></script>
+	<script src="assets/js/custom.js" type="text/javascript"></script>
+
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #47525d;
+            background-color: #fff;
+
+            margin: 0;
+            padding: 20px;
+        }
+
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <div id="content">
+		<h2>FFMPEG Library</h2>
+
+        <form action="form_upload.php" method="post" enctype="multipart/form-data">
+
+            <!-- video upload -->
+            <input type="file" name="metafiles[]" id="meta_input">
+            <!-- end of video upload -->
+            <hr>
+		    <!-- video upload -->
+		    <input type="file" name="files[]" id="filer_input" multiple="multiple">
+		    <!-- end of video upload -->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
