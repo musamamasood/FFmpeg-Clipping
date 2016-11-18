@@ -10,10 +10,14 @@
 
 	<!-- Styles -->
 	<link href="assets/css/jquery.filer.css" rel="stylesheet">
+    <link href="assets/css/themes/jquery.filer-dragdropbox-theme.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 
 	<!-- Jvascript -->
 	<script src="http://code.jquery.com/jquery-3.1.0.min.js" crossorigin="anonymous"></script>
 	<script src="assets/js/jquery.filer.min.js" type="text/javascript"></script>
+	<script src="assets/js/jquery.isloading.min.js" type="text/javascript"></script>
 	<script src="assets/js/custom.js" type="text/javascript"></script>
 
     <style>
@@ -34,6 +38,25 @@
             border: 0;
             border-top: 1px solid #eee;
         }
+        .isloading-wrapper.isloading-right{margin-left:10px;}
+        .isloading-overlay{position:relative;text-align:center;}.isloading-overlay .isloading-wrapper{background:#FFFFFF;-webkit-border-radius:7px;-webkit-background-clip:padding-box;-moz-border-radius:7px;-moz-background-clip:padding;border-radius:7px;background-clip:padding-box;display:inline-block;margin:0 auto;padding:10px 20px;top:10%;z-index:9000;}
+
+        /*Glyphicon Spinner*/
+        .glyphicon-spin {
+            -animation: spin .9s infinite linear;
+            -webkit-animation: spin2 .9s infinite linear;
+        }
+
+        @-webkit-keyframes spin2 {
+            from { -webkit-transform: rotate(0deg);}
+            to { -webkit-transform: rotate(360deg);}
+        }
+
+        @keyframes spin {
+            from { transform: scale(1) rotate(0deg);}
+            to { transform: scale(1) rotate(360deg);}
+        }
+
     </style>
 </head>
 
@@ -41,18 +64,7 @@
     <hr>
     <div id="content">
 		<h2>FFMPEG Library</h2>
-
-        <form action="form_upload.php" method="post" enctype="multipart/form-data">
-
-            <!-- video upload -->
-            <input type="file" name="metafiles[]" id="meta_input">
-            <!-- end of video upload -->
-            <hr>
-		    <!-- video upload -->
-		    <input type="file" name="files[]" id="filer_input" multiple="multiple">
-		    <!-- end of video upload -->
-            <input type="submit" value="Submit">
-        </form>
+        <input type="file" name="files[]" id="filer_input2">
     </div>
 </body>
 </html>

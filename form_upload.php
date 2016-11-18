@@ -3,21 +3,34 @@
     require('classes/class.uploader.php');
     require('classes/class.ffmpeg_clipping.php');
 
-	//
-	##TODO
-	# Set path for clips
 
-    $uploader = new Uploader();
-    $logger = new Monolog\Logger('ffmpeg');
-    $logger->pushHandler(new Monolog\Handler\StreamHandler('php://stdout'));
-
-    $ffmpeg = FFMpeg\FFMpeg::create(array(
-        'ffmpeg.binaries'  => 'ffmpeg-lib/bin/ffmpeg.exe',
-        'ffprobe.binaries' => 'ffmpeg-lib/bin/ffprobe.exe',
-        'timeout'          => 3600, // The timeout for the underlying process
-        'ffmpeg.threads'   => 12,   // The number of threads that FFMpeg should use
-    ), $logger );
-    //var_dump($logger); exit();
+    /**
+     * Clip Timing Array
+     */
+    $clips_arr = array(
+        array(
+            'start' => '00:00.00',
+            'end' => '00:30.00',
+        ),
+        array(
+            'start' => '01:05.00',
+            'end' => '01:12.00',
+        ),
+        array(
+            'start' => '02:00.00',
+            'end' => '02:59.00',
+        ),
+    );
+    /**
+     * Inilize objects from classes
+     */
+    $uploader   = new Uploader();
+    $ffmpeg     = FFMpeg\FFMpeg::create();
     $ffmpeg_clipping = new FFMpeg_Clipping( $uploader, $ffmpeg );
-    $ffmpeg_clipping->video_clipping( $_FILES['metafiles'], $_FILES['files'] );
+
+    /**
+     * Generate clips
+     */
+	$get_chip_name = $ffmpeg_clipping->video_clipping( $clips_arr, $_FILES['files'] );
+	echo json_encode($get_chip_name[0]);
 ?>
