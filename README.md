@@ -4,6 +4,7 @@ Clone this script to generate the clips based on start and end time.
 
 ##Please make these configuration before running script. 
 
+- Run this command in terminal **composer update**
 - Increase post_max_size to 64M in php.ini 
     **post_max_size = 256M**
 - Pleas make sure [FFmpeg](https://www.ffmpeg.org/) libraries [installed](https://github.com/adaptlearning/adapt_authoring/wiki/Installing-FFmpeg) by run these command in terminal **which ffmpeg** and **which ffprobe**
